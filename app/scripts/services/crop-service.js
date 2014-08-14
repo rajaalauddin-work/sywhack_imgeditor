@@ -4,74 +4,70 @@ angular.module('sywhackImgeditorApp')
 .service("cropService", function() {
 	
 	this.enableCrop = function() {
-		initDraw(document.getElementById('canvas'));	
+		//initDraw(document.getElementById('canvas'));	
+		init();
 
-		// $('#canvas').bind('click', function(event) {
-		// 	var rect = event.currentTarget.getBoundingClientRect();
-  //     var localMouseX = event.pageX - rect.left;
-  //     var localMouseY = event.pageY - rect.top;
-  //     var percentageX = localMouseX / rect.width;
-  //     var percentageY = localMouseY / rect.height;
+		drawImage(500, 500);
 
-  //     console.log(localMouseX);
-  //     console.log(localMouseY);
-		// })
 	}
 	
+	var canvas = document.getElementById('canvas'),
+    ctx = canvas.getContext('2d'),
+    rect = {},
+    drag = false;
 
-	function initDraw(canvas) {
-		var mouse = {
-        x: 0,
-        y: 0,
-        startX: 0,
-        startY: 0
-    };
-    var element = null;
+  function drawImage(width, height) {
 
-    function setMousePosition(e) {
-        var ev = e || window.event; //Moz || IE
-        var rect = ev.currentTarget.getBoundingClientRect();
+  	var imagePaper = new Image();
+	  imagePaper.onload = function(){
 
-        if (ev.pageX) { //Moz
-            //mouse.x = ev.pageX + window.pageXOffset;
-            //mouse.y = ev.pageY + window.pageYOffset;
-            mouse.x = ev.pageX - rect.left;
-            mouse.y = ev.pageY - rect.top;
-        } else if (ev.clientX) { //IE
-            //mouse.x = ev.clientX + document.body.scrollLeft;
-            //mouse.y = ev.clientY + document.body.scrollTop;
-        }
+	      ctx.drawImage(imagePaper,0, 0, width,height);
+	  };
 
-        console.log(mouse.x);
-        console.log(mouse.y);
-    };
+		imagePaper.src = "images/Penguins.jpg";
 
-    canvas.onmousemove = function (e) {
-        setMousePosition();
-        if (element !== null) {
-            element.style.width = Math.abs(mouse.x - mouse.startX) + 'px';
-            element.style.height = Math.abs(mouse.y - mouse.startY) + 'px';
-            element.style.left = (mouse.x - mouse.startX < 0) ? mouse.x + 'px' : mouse.startX + 'px';
-            element.style.top = (mouse.y - mouse.startY < 0) ? mouse.y + 'px' : mouse.startY + 'px';
-        }
-    }
+  }
 
-    canvas.onclick = function (e) {
-        if (element !== null) {
-            element = null;
-            canvas.style.cursor = "default";
-            console.log("finsihed.");
-        } else {
-            console.log("begun.");
-            mouse.startX = mouse.x;
-            mouse.startY = mouse.y;
-            element = document.createElement('div');
-            element.className = 'rectangle'
-            element.style.left = mouse.x + 'px';
-            element.style.top = mouse.y + 'px';
-            canvas.appendChild(element)
-            canvas.style.cursor = "crosshair";
-        }
-    }
-}  	
+	function draw() {
+		ctx.globalAlpha=0.2;
+		ctx.fillStyle = "#000";
+	  ctx.fillRect(rect.startX, rect.startY, rect.w, rect.h);
+
+	  drawImage(500, 500);
+
+	}
+
+	function mouseDown(e) {
+	  rect.startX = e.pageX - this.offsetLeft;
+	  rect.startY = e.pageY - this.offsetTop;
+	  drag = true;
+	}
+
+	function mouseUp() {
+	  drag = false;
+
+	  Caman("#canvas", function () {
+		  // width, height, x, y
+		  this.crop(rect.w, rect.h, rect.startX, rect.startY);
+
+		  // Still have to call render!
+		  this.render();
+		});
+	}
+
+	function mouseMove(e) {
+	  if (drag) {
+	    rect.w = (e.pageX - this.offsetLeft) - rect.startX;
+	    rect.h = (e.pageY - this.offsetTop) - rect.startY ;
+	    ctx.clearRect(0,0,canvas.width,canvas.height);
+	    draw();
+	  }
+	}
+
+	function init() {
+	  canvas.addEventListener('mousedown', mouseDown, false);
+	  canvas.addEventListener('mouseup', mouseUp, false);
+	  canvas.addEventListener('mousemove', mouseMove, false);
+	}
+ 	
 });
