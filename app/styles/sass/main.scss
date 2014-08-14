@@ -22,7 +22,7 @@ body {
 	}
 	.img-holder {
 		width: 400px;
-		height: 300px;
+		height: auto;
 
 		#img-to-edit {
 			width: 100%;
@@ -30,12 +30,13 @@ body {
 		}
 	}			
 	.filters-holder {
-		
+		width: 400px;
+
 		.filters {
 			list-style-type: none;
 			
 			.filter {
-
+				display: inline-block;
 			}
 		}
 	}

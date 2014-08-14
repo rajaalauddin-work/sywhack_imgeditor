@@ -19,12 +19,18 @@ body {
 }
 .syw-hack-image-editor .img-holder {
   width: 400px;
-  height: 300px;
+  height: auto;
 }
 .syw-hack-image-editor .img-holder #img-to-edit {
   width: 100%;
   height: 100%;
 }
+.syw-hack-image-editor .filters-holder {
+  width: 400px;
+}
 .syw-hack-image-editor .filters-holder .filters {
   list-style-type: none;
+}
+.syw-hack-image-editor .filters-holder .filters .filter {
+  display: inline-block;
 }

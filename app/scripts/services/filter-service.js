@@ -14,7 +14,6 @@ angular.module('sywhackImgeditorApp')
 
   	this.applyFilter = function(filterId, value) {
   		//alert('Apply '+filterId+" "+value);
-  		debugger;
   		switch(filterId){
   			case "brightness": 
 				Caman('#img-to-edit', function () {
