@@ -1,3 +1,13 @@
-h3 {
-  color: green;
+body {
+  margin: 0;
+  padding: 0;
+}
+
+syw-hack-image-editor {
+  margin: 0;
+  padding: 0;
+}
+syw-hack-image-editor .img-holder {
+  width: 400px;
+  height: 300px;
 }
