@@ -9,10 +9,12 @@
   </div>
 
   <div class="filters-holder">
-    <button ng-click="applyFilters()">Apply Filters</button>
-    <!-- <ul class="filters">
-      <li class="filter"></li>
-    </ul> -->
+    <!-- <button ng-click="applyFilters()">Apply Filters</button> -->
+    <ul class="filters">
+      <li class="filter" ng-repeat="filter in filters">
+        <button ng-click="applyFilter(filter.id, 10)">{{filter.name}}</button>
+      </li>
+    </ul>
   </div>
   <div class="footer">
     

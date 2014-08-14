@@ -11,4 +11,40 @@ angular.module('sywhackImgeditorApp')
 		    this.render();
 	  	});
   	};
+
+  	this.applyFilter = function(filterId, value) {
+  		//alert('Apply '+filterId+" "+value);
+  		debugger;
+  		switch(filterId){
+  			case "brightness": 
+				Caman('#img-to-edit', function () {
+		  			this.brightness(value);
+				    this.render();
+			  	});
+  			break;
+  			case "contrast": 
+  				Caman('#img-to-edit', function () {
+		  			this.contrast(value);
+				    this.render();
+			  	});
+  			break;
+  			case "sepia": 
+  				Caman('#img-to-edit', function () {
+		  			this.sepia(value);
+				    this.render();
+			  	});
+  			break;
+  			case "saturation": 
+  				Caman('#img-to-edit', function () {
+		  			this.saturation(value);
+				    this.render();
+			  	});
+  			break;
+  			default: 
+  				Caman('#img-to-edit', function () {
+	  			 	this.render();
+			  	});	
+  			break;
+  		}
+  	};
   });
