@@ -3,3 +3,27 @@
 	height: 500px;
 	background: #ccc;
 }
+
+body {
+  margin: 0;
+  padding: 0;    
+}
+
+syw-hack-image-editor {
+	margin: 0;
+	padding: 0;
+
+	.header {
+
+	}
+	.img-holder {
+		width: 400px;
+		height: 300px;
+	}			
+	.filters-holder {
+
+	}
+	.footer {
+
+	}
+}
