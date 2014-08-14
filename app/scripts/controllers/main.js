@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('sywhackImgeditorApp')
-  .controller('MainCtrl', [ "$scope", "filterService", function ($scope, filterService) {
+  .controller('MainCtrl', [ "$scope", "filterService", "cropService", function ($scope, filterService, cropService) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -13,7 +13,6 @@ angular.module('sywhackImgeditorApp')
 	};
 
 	$scope.applyFilter = function(filterId, value) {
-		debugger;
 		filterService.applyFilter(filterId, value);
 	};
 
@@ -34,7 +33,7 @@ angular.module('sywhackImgeditorApp')
 			name: 'Saturation',
 			id: 'saturation'
 		}
-	];
-
-  }]);
+	];  
+	cropService.enableCrop();
+}]);
 
