@@ -9,8 +9,8 @@ angular.module('sywhackImgeditorApp')
     ];
 
     $scope.applyFilters = function(){
-    	filterService.applyFilters();	    	
-	};
+	    	filterService.applyFilters();	    	
+		};
 
 	$scope.applyFilter = function(filterId, value) {
 		filterService.applyFilter(filterId, value);
