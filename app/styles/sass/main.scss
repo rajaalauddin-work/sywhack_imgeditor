@@ -13,7 +13,7 @@ body {
   padding: 0;    
 }
 
-syw-hack-image-editor {
+.syw-hack-image-editor {
 	margin: 0;
 	padding: 0;
 
@@ -23,6 +23,11 @@ syw-hack-image-editor {
 	.img-holder {
 		width: 400px;
 		height: 300px;
+
+		#img-to-edit {
+			width: 100%;
+			height: 100%;
+		}
 	}			
 	.filters-holder {
 
