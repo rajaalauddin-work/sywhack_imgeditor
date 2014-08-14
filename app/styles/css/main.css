@@ -1,5 +1,23 @@
-#mainCanvas {
+#canvas {
   width: 500px;
   height: 500px;
-  background: #ccc;
+  border: solid 1px black;
+}
+
+.rectangle {
+  border: 1px solid green;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+syw-hack-image-editor {
+  margin: 0;
+  padding: 0;
+}
+syw-hack-image-editor .img-holder {
+  width: 400px;
+  height: 300px;
 }
