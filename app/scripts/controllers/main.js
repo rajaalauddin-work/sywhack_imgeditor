@@ -32,6 +32,15 @@ function ($scope, filterService, cropService, utilityService) {
 		filterService.applyFilter(filterId, offset);
 		$scope.filters[index].actualValue = $scope.filters[index].sliderValue;
 	};
+
+	$scope.resetFilters = function(){
+		if($scope.filters){
+			for(var i=0; $scope.filters.length; i++){
+				$scope.filters[i].sliderValue = 0;
+				$scope.filters[i].actualValue = 0;			
+			}
+		}
+	};
 	
 	$scope.applyPreset = function(presetId) {
 		filterService.applyPreset(presetId);		
@@ -104,6 +113,7 @@ function ($scope, filterService, cropService, utilityService) {
 	$scope.resetImage = function() {
 		drawImage($scope.origImageData, true);
 		reInitCaman();
+		$scope.resetFilters();
 	}
 
 	var reInitCaman = function() {

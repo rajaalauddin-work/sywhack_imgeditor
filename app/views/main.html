@@ -8,16 +8,16 @@
     <button ng-click="applyFilters(-5)">Apply Dec Filters</button> -->
     <ul class="filters">
       <li class="filter" ng-repeat="filter in filters">
-        <button ng-click="applyFilter(filter.id, filter.sliderValue, filter.actualValue, $index)">{{filter.name}}</button>
+        <button>{{filter.name}}</button>
         <input type="range" min="-100" max="100" step="10" ng-model="filter.sliderValue" 
           ng-change="applyFilter(filter.id, filter.sliderValue-filter.actualValue, $index)" //>
-        <span ng-bind="filter.value"></span>
+        <span ng-bind="filter.sliderValue"></span>        
       </li>
     </ul>
-
+    <button class="reset-filters" ng-click="resetFilters()">Reset</button>
     <ul class="presets">
       <li class="preset" ng-repeat="preset in presets">
-        <button ng-click="applyPreset(preset.id)">{{preset.name}}</button>
+        <button ng-disabled="mainImageData.length == 0" ng-click="applyPreset(preset.id)">{{preset.name}}</button>
       </li>
     </ul>
     

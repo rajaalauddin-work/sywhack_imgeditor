@@ -18,13 +18,17 @@ body {
   padding: 0;
 }
 .syw-hack-image-editor .filters-holder {
-  width: 400px;
+  width: 100%;
+  text-align: center;
 }
 .syw-hack-image-editor .filters-holder .filters {
   list-style-type: none;
 }
 .syw-hack-image-editor .filters-holder .filters .filter {
-  display: inline-block;
+  display: block;
+}
+.syw-hack-image-editor .filters-holder .reset-filters {
+  margin: 5px;
 }
 .syw-hack-image-editor .filters-holder .presets {
   list-style-type: none;

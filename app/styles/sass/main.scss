@@ -22,14 +22,19 @@ body {
 	}
 
 	.filters-holder {
-		width: 400px;
-
+		width: 100%;
+		text-align: center;
+		
 		.filters {
 			list-style-type: none;
 			
 			.filter {
-				display: inline-block;
+				display: block;
 			}
+		}
+
+		.reset-filters {
+			margin: 5px;			
 		}
 
 		.presets {
