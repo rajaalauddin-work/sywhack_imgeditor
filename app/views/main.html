@@ -9,8 +9,8 @@
     <ul class="filters">
       <li class="filter" ng-repeat="filter in filters">
         <button ng-click="applyFilter(filter.id, filter.sliderValue, filter.actualValue, $index)">{{filter.name}}</button>
-        <input type="range" min="-100" max="100" step="1" ng-model="filter.sliderValue" 
-          ng-change="applyFilter(filter.id, filter.sliderValue, filter.actualValue, $index)" //>
+        <input type="range" min="-100" max="100" step="10" ng-model="filter.sliderValue" 
+          ng-change="applyFilter(filter.id, filter.sliderValue-filter.actualValue, $index)" //>
         <span ng-bind="filter.value"></span>
       </li>
     </ul>

@@ -27,8 +27,9 @@ function ($scope, filterService, cropService, utilityService) {
     	filterService.applyFilters(value);	    	
 	};
 
-	$scope.applyFilter = function(filterId, sliderValue, actualValue, index) {
-		$scope.filters[index].actualValue = filterService.applyFilter(filterId, sliderValue, actualValue);
+	$scope.applyFilter = function(filterId, offset, index) {
+		filterService.applyFilter(filterId, offset);
+		$scope.filters[index].actualValue = $scope.filters[index].sliderValue;
 	};
 
 	$scope.filters = [
