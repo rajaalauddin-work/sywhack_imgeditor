@@ -1,0 +1,29 @@
+.img-input-custom {
+	
+	width: auto;
+	height: 100px;
+	margin: 0px auto;
+
+	input[type='file'] {
+		display: none;
+	}
+
+	.uploader-menu {
+		width: 120px;
+		height: 100px;
+		display: inline-block;
+		border-radius: 5px;
+		margin: 5px;
+		padding: 5px;
+
+		.glyphicon {
+			font-size: 3em;
+			cursor: pointer;
+		}
+	}
+
+	.uploader-menu:hover {
+		background-color: #ccc;
+	}
+
+}
