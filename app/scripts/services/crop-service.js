@@ -15,26 +15,40 @@ angular.module('sywhackImgeditorApp')
 		//init();
 		//debugger;
 		canvas = document.getElementById('mainCanvas');
-		debugger;
+		// debugger;
 		canvasWidth = canvas.width;
 		canvasHeight = canvas.height;
 		canvasOrig = canvas.toDataURL('image/jpeg');
 		ctx = canvas.getContext('2d');
 		init(canvas);
 
-		// create another canvas for image
-		// var canvasImg = document.createElement('canvas');
-		// var canvasLeft = canvas.getBoundingClientRect().left;
-		// var canvasTop = canvas.getBoundingClientRect().top;
-		// canvasImg.width = canvasWidth;
-		// canvasImg.height = canvasHeight;
-		// canvasImg.style.left = canvasLeft;
-		// canvasImg.style.top = canvasTop;
-		// canvasImg.style.position = "absolute";
-		// $('.img-holder').append(canvasImg);
-
+		// create another canvas
+		createBgCanvas();
 		//drawImage(500, 500);
 		//utilityService.loadCanvasWithUrlImage("canvas", "http://i.imgur.com/8gRd6o3.jpg");
+
+	}
+
+	function createBgCanvas() {
+
+		// create another canvas for image
+		var canvasImg = document.createElement('canvas');
+		var canvasLeft = canvas.getBoundingClientRect().left;
+		var canvasTop = canvas.getBoundingClientRect().top;
+		canvasImg.width = canvasWidth;
+		canvasImg.height = canvasHeight;
+		$(canvasImg).attr('id', 'cropBg');
+		$(canvasImg).css('left', canvasLeft);
+		$(canvasImg).css('z-index', '-9');
+		canvasImg.style.position = "absolute";
+		$('.img-holder').append(canvasImg);
+		var ctx2 = canvasImg.getContext('2d');
+		var img = new Image();
+	  img.onload = function(){
+	      ctx2.drawImage(img,0, 0, canvasWidth,canvasHeight);
+	  };
+
+		img.src = canvasOrig;
 
 	}
 	
@@ -62,7 +76,7 @@ angular.module('sywhackImgeditorApp')
 		ctx.fillStyle = "#000";
 	  ctx.fillRect(rect.startX, rect.startY, rect.w, rect.h);
 
-	  drawImage();
+	  //drawImage();
 	  //drawImage(500, 500);
 	  //utilityService.loadCanvasWithUrlImage("canvas", "http://i.imgur.com/8gRd6o3.jpg");
 
@@ -77,7 +91,12 @@ angular.module('sywhackImgeditorApp')
 	function mouseUp() {
 	  drag = false;
 
+	  // draw it first, then crop
+	  drawImage();
 
+	  // remove bg canvas
+	  $('#cropBg').remove();
+	  
 	  Caman("#mainCanvas", function () {
 		  // width, height, x, y
 		  this.crop(rect.w, rect.h, rect.startX, rect.startY);

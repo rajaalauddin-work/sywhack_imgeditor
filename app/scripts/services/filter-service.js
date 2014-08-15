@@ -15,10 +15,13 @@ angular.module('sywhackImgeditorApp')
 
   	this.applyFilter = function(filterId, offset) {
   		
+      console.log(filterId);
+      console.log(offset);
   		/*var value=10;
   		if(sliderValue<actualValue){
   			value=-10;
   		}
+
 
   		console.log("Slider "+sliderValue +" Actual " +actualValue);
   		console.log(value);*/
