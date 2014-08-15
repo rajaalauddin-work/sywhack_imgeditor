@@ -104,10 +104,11 @@ angular.module('sywhackImgeditorApp')
       scope.showUrlMode = function() {
         scope.showUrlInput = true;
         scope.showVideo = false;
+        scope.imgData = '';
       }
 
       scope.loadImageFromUrl = function() {
-        if(scope.imageUrl == '') return;
+        if(!scope.imageUrl || scope.imageUrl == '') return;
 
         var img = new Image();
         img.crossOrigin = "anonymous";
