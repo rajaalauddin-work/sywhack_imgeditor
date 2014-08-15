@@ -29,7 +29,10 @@
   </div>
 
   <div class="footer">
-    
+    <div ng-show='showCropPanel' class='crop-control'>
+      <button class='btn btn-info' ng-click='performCrop()' >Perform Crop</button>
+      <button class='btn btn-info'>Cancel</button>
+    </div>
   </div>
 </div>
 

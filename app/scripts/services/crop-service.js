@@ -22,10 +22,29 @@ angular.module('sywhackImgeditorApp')
 		ctx = canvas.getContext('2d');
 		init(canvas);
 
+		debugger;
 		// create another canvas
 		createBgCanvas();
 		//drawImage(500, 500);
 		//utilityService.loadCanvasWithUrlImage("canvas", "http://i.imgur.com/8gRd6o3.jpg");
+
+	}
+
+	this.performCrop = function() {
+		//draw it first, then crop
+	  drawImage();
+
+	  //remove bg canvas
+	  $('#cropBg').remove();
+
+
+	  Caman("#mainCanvas", function () {
+		  // width, height, x, y
+		  this.crop(rect.w, rect.h, rect.startX, rect.startY);
+
+		  // Still have to call render!
+		  this.render();
+		});
 
 	}
 
@@ -92,18 +111,19 @@ angular.module('sywhackImgeditorApp')
 	  drag = false;
 
 	  // draw it first, then crop
-	  drawImage();
+	  //drawImage();
 
 	  // remove bg canvas
-	  $('#cropBg').remove();
-	  
-	  Caman("#mainCanvas", function () {
-		  // width, height, x, y
-		  this.crop(rect.w, rect.h, rect.startX, rect.startY);
+	  //$('#cropBg').remove();
 
-		  // Still have to call render!
-		  this.render();
-		});
+
+	 //  Caman("#mainCanvas", function () {
+		//   // width, height, x, y
+		//   this.crop(rect.w, rect.h, rect.startX, rect.startY);
+
+		//   // Still have to call render!
+		//   this.render();
+		// });
 
 		//utilityService.loadCanvasWithUrlImage("canvas", "http://i.imgur.com/8gRd6o3.jpg");
 	}

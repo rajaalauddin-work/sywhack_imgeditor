@@ -12,6 +12,7 @@ function ($scope, filterService, cropService, utilityService) {
   $scope.mainImageData = '';
   $scope.showVideo = false;
   $scope.showCanvas = false;
+  $scope.showCropPanel = false;
   $scope.origImageData = '';
 
   $scope.$watch('mainImageData', function(newVal, oldVal) {
@@ -61,6 +62,12 @@ function ($scope, filterService, cropService, utilityService) {
 
 	$scope.enableCropping = function() {
 		cropService.enableCrop();
+		$scope.showCropPanel = true;
+	}
+
+	$scope.performCrop = function() {
+		cropService.performCrop();
+		$scope.showCropPanel = false;
 	}
 
 	$scope.downloadImagePng = function() {
