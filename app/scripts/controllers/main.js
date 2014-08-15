@@ -92,7 +92,6 @@ function ($scope, filterService, cropService, utilityService) {
 	}
 
 	$scope.downloadImagePng = function() {
-
 		var canvas = document.getElementById('mainCanvas');
 		event.target.href = canvas.toDataURL("image/png")
 	}
@@ -104,7 +103,14 @@ function ($scope, filterService, cropService, utilityService) {
 
 	$scope.resetImage = function() {
 		drawImage($scope.origImageData, true);
+		reInitCaman();
 	}
+
+	var reInitCaman = function() {
+		Caman("#mainCanvas", function(){
+			this.reset();
+		});
+	};
 
 	function drawImage(imgData, clearCanvas) {
 
@@ -126,16 +132,16 @@ function ($scope, filterService, cropService, utilityService) {
 		// clear from previous image
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  	var img = new Image();
+  		var img = new Image();
 
-	  img.onload = function(){
+	  	img.onload = function(){
 	  		
 	  		$('#mainCanvas').attr('width', this.width);
 	  		$('#mainCanvas').attr('height', this.height);
 	  		
 	      ctx.drawImage(img,0, 0, this.width,this.height);
 	      $scope.showCanvas = true;
-	  };
+	  	};
 
 		img.src = imgData;
 

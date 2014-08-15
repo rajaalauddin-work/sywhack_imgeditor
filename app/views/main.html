@@ -4,8 +4,8 @@
   </div>
   
   <div class="filters-holder">
-    <button ng-click="applyFilters(5)">Apply Inc Filters</button>
-    <button ng-click="applyFilters(-5)">Apply Dec Filters</button>
+    <!-- <button ng-click="applyFilters(5)">Apply Inc Filters</button>
+    <button ng-click="applyFilters(-5)">Apply Dec Filters</button> -->
     <ul class="filters">
       <li class="filter" ng-repeat="filter in filters">
         <button ng-click="applyFilter(filter.id, filter.sliderValue, filter.actualValue, $index)">{{filter.name}}</button>
