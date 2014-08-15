@@ -18,7 +18,6 @@ body {
   padding: 0;
 }
 .syw-hack-image-editor .filters-holder {
-  width: 100%;
   text-align: center;
 }
 .syw-hack-image-editor .filters-holder .filters {
@@ -40,6 +39,6 @@ body {
   text-align: center;
   height: auto;
 }
-.syw-hack-image-editor .img-holder #mainCanvas {
+.syw-hack-image-editor .img-holder canvas {
   max-width: 80%;
 }

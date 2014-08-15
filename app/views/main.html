@@ -1,9 +1,6 @@
 <div ng-controller="MainCtrl" class="row syw-hack-image-editor">
-  <div class="header">
-    
-  </div>
   
-  <div class="filters-holder">
+  <div class="filters-holder col-md-3">
     <!-- <button ng-click="applyFilters(5)">Apply Inc Filters</button>
     <button ng-click="applyFilters(-5)">Apply Dec Filters</button> -->
     <ul class="filters">
@@ -28,7 +25,7 @@
     <a download='img.jpeg' ng-click='downloadImageJpeg()'>JPEG Download</a>
   </div>
 
-  <div class="img-holder">
+  <div class="img-holder col-md-9">
     <!-- <img id="img-to-edit" src="http://www.fs.usda.gov/Internet/FSE_MEDIA/stelprdb5199597.jpg" /> -->
     <div img-input-custom img-data='mainImageData' show-video='showVideo' show-canvas='showCanvas'></div>
     <canvas id="mainCanvas" ng-show="mainImageData != '' && !showVideo && showCanvas"></canvas>
