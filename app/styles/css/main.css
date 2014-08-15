@@ -18,12 +18,11 @@ body {
   padding: 0;
 }
 .syw-hack-image-editor .img-holder {
-  width: 400px;
+  text-align: center;
   height: auto;
 }
 .syw-hack-image-editor .img-holder #img-to-edit {
-  width: 100%;
-  height: 100%;
+  max-width: 80%;
 }
 .syw-hack-image-editor .filters-holder {
   width: 400px;

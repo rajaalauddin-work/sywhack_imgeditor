@@ -1,13 +1,14 @@
 'use strict';
 
 angular.module('sywhackImgeditorApp')
-.service("cropService", function() {
+.service("cropService", [ "utilityService", function(utilityService) {
 	
 	this.enableCrop = function() {
 		//initDraw(document.getElementById('canvas'));	
 		init();
 
 		drawImage(500, 500);
+		//utilityService.loadCanvasWithUrlImage("canvas", "http://i.imgur.com/8gRd6o3.jpg");
 
 	}
 	
@@ -25,6 +26,7 @@ angular.module('sywhackImgeditorApp')
 	  };
 
 		imagePaper.src = "images/Penguins.jpg";
+		//imagePaper.src = "http://i.imgur.com/8gRd6o3.jpg";
 
   }
 
@@ -34,6 +36,7 @@ angular.module('sywhackImgeditorApp')
 	  ctx.fillRect(rect.startX, rect.startY, rect.w, rect.h);
 
 	  drawImage(500, 500);
+	  //utilityService.loadCanvasWithUrlImage("canvas", "http://i.imgur.com/8gRd6o3.jpg");
 
 	}
 
@@ -46,6 +49,7 @@ angular.module('sywhackImgeditorApp')
 	function mouseUp() {
 	  drag = false;
 
+
 	  Caman("#canvas", function () {
 		  // width, height, x, y
 		  this.crop(rect.w, rect.h, rect.startX, rect.startY);
@@ -53,6 +57,8 @@ angular.module('sywhackImgeditorApp')
 		  // Still have to call render!
 		  this.render();
 		});
+
+		//utilityService.loadCanvasWithUrlImage("canvas", "http://i.imgur.com/8gRd6o3.jpg");
 	}
 
 	function mouseMove(e) {
@@ -70,4 +76,4 @@ angular.module('sywhackImgeditorApp')
 	  canvas.addEventListener('mousemove', mouseMove, false);
 	}
  	
-});
+}]);
