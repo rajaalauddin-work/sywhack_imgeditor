@@ -11,6 +11,7 @@ function ($scope, filterService, cropService, utilityService) {
 
   $scope.mainImageData = '';
   $scope.showVideo = false;
+  $scope.origImageData = '';
 
   $scope.$watch('mainImageData', function(newVal, oldVal) {
 
@@ -63,7 +64,14 @@ function ($scope, filterService, cropService, utilityService) {
 		event.target.href = canvas.toDataURL("image/jpeg")
 	}
 
+	$scope.resetImage = function() {
+		drawImage($scope.origImageData, true);
+	}
+
 	function drawImage(imgData, clearCanvas) {
+
+		// save original image data
+		$scope.origImageData = imgData;
 
 		if(clearCanvas) {
 			// destroy canvas, recreate a new one
