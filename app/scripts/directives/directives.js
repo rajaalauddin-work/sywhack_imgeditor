@@ -13,7 +13,7 @@ angular.module('sywhackImgeditorApp')
 
 			scope.openFileSelect = function() {
         scope.showVideo = false;
-        scope.imgData = '';
+        //scope.imgData = '';
         element.find('input[type="file"]').trigger('click');
       }
 
@@ -90,6 +90,7 @@ angular.module('sywhackImgeditorApp')
 		    canvas.height = 480;
 		    ctx.drawImage(video,0,0, 640, 480);
 		    scope.imgData = canvas.toDataURL('image/jpeg'); 
+        scope.showVideo = false;
 			}
 
 			function gotWebcam(stream) {
