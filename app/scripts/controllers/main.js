@@ -12,8 +12,10 @@ function ($scope, filterService, cropService, utilityService) {
   $scope.mainImageData = '';
 
   $scope.$watch('mainImageData', function(newVal, oldVal) {
-  	if(newVal != '') {
-  		drawImage(newVal); 
+  	if(newVal != '' && oldVal != '') {
+  		drawImage(newVal, true); 
+  	} else if(newVal != '') {
+  		drawImage(newVal, false)
   	}
   });
 
@@ -45,9 +47,22 @@ function ($scope, filterService, cropService, utilityService) {
 	];  
 	cropService.enableCrop();
 
-	function drawImage(imgData) {
+	function drawImage(imgData, clearCanvas) {
+
+		if(clearCanvas) {
+			// destroy canvas, recreate a new one
+			$('#mainCanvas').remove();
+			var $cvs = $('<canvas></canvas>');
+			$cvs.attr('id', 'mainCanvas');
+			$('.img-holder').append($cvs);
+		}
+
 		var canvas = document.getElementById('mainCanvas');
 		var ctx = canvas.getContext('2d');
+
+		// clear from previous image
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+
   	var img = new Image();
 
 	  img.onload = function(){

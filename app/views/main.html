@@ -16,7 +16,8 @@
     <!-- <img id="img-to-edit" src="http://www.fs.usda.gov/Internet/FSE_MEDIA/stelprdb5199597.jpg" /> -->
     <div img-input-custom img-data='mainImageData'></div>
     <!-- <img id="img-to-edit" src="\images\Penguins.jpg" /> -->
-    <canvas id="mainCanvas"></canvas>
+    <video id='localVideo' style='height: 480px;'></video>
+    <canvas id="mainCanvas" ng-show="mainImageData != ''"></canvas>
     <!-- <canvas id='canvas' width='500' height='500'></canvas> -->
     <!-- <div id='mainCanvas'></div> -->
   </div>

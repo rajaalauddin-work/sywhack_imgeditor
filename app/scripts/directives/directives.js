@@ -57,6 +57,38 @@ angular.module('sywhackImgeditorApp')
         reader.readAsDataURL(ev.target.files[0]);
         
       }
+
+      scope.openWebcam = function() {
+
+      	navigator.getWebcam = (
+				navigator.getUserMedia || 
+				navigator.webkitGetUserMedia || 
+				navigator.mozGetUserMedia ||
+				navigator.msGetUserMedia );
+
+				navigator.getWebcam(
+					// constraint
+					{ video: true, audio: false },
+					// success callback
+					gotWebcam,
+					//error callback
+					function(err) {
+						console.log("Oops! Something not right." + err);
+					}
+
+				);
+
+      }
+
+			function gotWebcam(stream) {
+				localVideo.src = window.URL.createObjectURL(stream);
+				localVideo.play();
+
+				// display some of the attributes of the MediaStream and MediaStreamTrack
+				// first, reach into the mediastream object to access info about the mediaStreamTrack
+				var video_track = stream.getVideoTracks()[0];
+
+			}
 		}
 	}
 }])
