@@ -15,11 +15,23 @@ angular.module('sywhackImgeditorApp')
 		//init();
 		//debugger;
 		canvas = document.getElementById('mainCanvas');
+		debugger;
 		canvasWidth = canvas.width;
 		canvasHeight = canvas.height;
 		canvasOrig = canvas.toDataURL('image/jpeg');
 		ctx = canvas.getContext('2d');
 		init(canvas);
+
+		// create another canvas for image
+		// var canvasImg = document.createElement('canvas');
+		// var canvasLeft = canvas.getBoundingClientRect().left;
+		// var canvasTop = canvas.getBoundingClientRect().top;
+		// canvasImg.width = canvasWidth;
+		// canvasImg.height = canvasHeight;
+		// canvasImg.style.left = canvasLeft;
+		// canvasImg.style.top = canvasTop;
+		// canvasImg.style.position = "absolute";
+		// $('.img-holder').append(canvasImg);
 
 		//drawImage(500, 500);
 		//utilityService.loadCanvasWithUrlImage("canvas", "http://i.imgur.com/8gRd6o3.jpg");
@@ -36,7 +48,7 @@ angular.module('sywhackImgeditorApp')
 
   	var img = new Image();
 	  img.onload = function(){
-
+	  		canvas.width = canvas.width;
 	      ctx.drawImage(img,0, 0, canvasWidth,canvasHeight);
 	  };
 
@@ -90,6 +102,10 @@ angular.module('sywhackImgeditorApp')
 	  canvas.addEventListener('mousedown', mouseDown, false);
 	  canvas.addEventListener('mouseup', mouseUp, false);
 	  canvas.addEventListener('mousemove', mouseMove, false);
+	}
+
+	function resetCanvas(canvas) {
+		canvas.width = canvas.width;
 	}
  	
 }]);
