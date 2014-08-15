@@ -9,6 +9,8 @@ angular.module('sywhackImgeditorApp')
       'Karma'
     ];
 
+    $scope.mainImageData = '';
+    
     $scope.applyFilters = function(){
 	    	filterService.applyFilters();	    	
 		};

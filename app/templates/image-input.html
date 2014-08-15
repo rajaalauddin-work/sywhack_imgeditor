@@ -1,0 +1,10 @@
+<div class='img-input-custom' ng-mouseenter="onMouseEnter()" ng-mouseleave="onMouseLeave()" >
+	<!-- <span class="icon-close_ico image-picker-delete" ng-click="onDelete()" ng-show="imageData != '' && hoveredState" title='Remove image'></span> -->
+	<input type='file' accept="image/png, image/jpeg" 
+	custom-on-change on-change-cb='onFileSelect(event)'/>
+	<!-- <img ng-show="imgData != ''" ng-src="{{imgData}}" /> -->
+	<div class='uploader-btn' ng-click="openFileSelect()">
+		<div class="image-picker-icon"><span class="glyphicon glyphicon-upload"></span></div>
+		<span class="image-picker-title">Upload Image</span>		
+	</div>
+</div>
