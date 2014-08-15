@@ -33,19 +33,23 @@ function ($scope, filterService, cropService, utilityService) {
 	$scope.filters = [
 		{
 			name: 'Brightness',
-			id: 'brightness'
+			id: 'brightness',
+			value: 0
 		},
 		{
 			name: 'Contrast',
-			id: 'contrast'
+			id: 'contrast',
+			value: 0
 		},
 		{
 			name: 'Sepia',
-			id: 'sepia'
+			id: 'sepia',
+			value: 0
 		},
 		{
 			name: 'Saturation',
-			id: 'saturation'
+			id: 'saturation',
+			value: 0
 		}
 	];  
 

@@ -7,7 +7,9 @@
     <!-- <button ng-click="applyFilters()">Apply Filters</button> -->
     <ul class="filters">
       <li class="filter" ng-repeat="filter in filters">
-        <button class='btn btn-secondary' ng-click="applyFilter(filter.id, 10)">{{filter.name}}</button>
+        <button ng-click="applyFilter(filter.id, filter.value)">{{filter.name}}</button>
+        <input type="range" min="-100" max="100" step="1" ng-model="filter.value" ng-change="applyFilter(filter.id, filter.value)" //>
+        <span ng-bind="filter.value"></span>
       </li>
     </ul>
     <button class='btn btn-info' ng-click='enableCropping()'>Enable Cropping</button>
