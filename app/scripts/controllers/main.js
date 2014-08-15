@@ -13,7 +13,7 @@ function ($scope, filterService, cropService, utilityService) {
   $scope.showVideo = false;
 
   $scope.$watch('mainImageData', function(newVal, oldVal) {
-  	
+
   	if(newVal != '' && oldVal != '') {
   		drawImage(newVal, true); 
   	} else if(newVal != '') {
@@ -52,6 +52,17 @@ function ($scope, filterService, cropService, utilityService) {
 		cropService.enableCrop();
 	}
 
+	$scope.downloadImagePng = function() {
+
+		var canvas = document.getElementById('mainCanvas');
+		event.target.href = canvas.toDataURL("image/png")
+	}
+
+	$scope.downloadImageJpeg = function() {
+		var canvas = document.getElementById('mainCanvas');
+		event.target.href = canvas.toDataURL("image/jpeg")
+	}
+
 	function drawImage(imgData, clearCanvas) {
 
 		if(clearCanvas) {
@@ -81,5 +92,6 @@ function ($scope, filterService, cropService, utilityService) {
 		img.src = imgData;
 
   }
+
 }]);
 
