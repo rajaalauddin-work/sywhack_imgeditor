@@ -13,8 +13,9 @@ function ($scope, filterService, cropService, utilityService) {
   $scope.showVideo = false;
 
   $scope.$watch('mainImageData', function(newVal, oldVal) {
-  	
+
   	if(newVal != '' && oldVal != '') {
+  		debugger;
   		drawImage(newVal, true); 
   	} else if(newVal != '') {
   		drawImage(newVal, false)

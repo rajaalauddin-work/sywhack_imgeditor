@@ -89,7 +89,7 @@ angular.module('sywhackImgeditorApp')
 		    canvas.width = 640;
 		    canvas.height = 480;
 		    ctx.drawImage(video,0,0, 640, 480);
-		    console.log(canvas.toDataURL('image/jpeg')); 
+		    scope.imgData = canvas.toDataURL('image/jpeg'); 
 			}
 
 			function gotWebcam(stream) {
