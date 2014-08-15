@@ -1,12 +1,12 @@
 <div ng-controller="MainCtrl" class="row syw-hack-image-editor">
   
-  <div class="filters-holder col-md-3">
+  <div class="filters-holder">
     <!-- <button ng-click="applyFilters(5)">Apply Inc Filters</button>
     <button ng-click="applyFilters(-5)">Apply Dec Filters</button> -->
     <ul class="filters">
       <li class="filter" ng-repeat="filter in filters">
         <button>{{filter.name}}</button>
-        <input type="range" min="-100" max="100" step="10" ng-model="filter.sliderValue" 
+        <input class='btn btn-info' type="range" min="-100" max="100" step="10" ng-model="filter.sliderValue" 
           ng-change="applyFilter(filter.id, filter.sliderValue-filter.actualValue, $index)" //>
         <span ng-bind="filter.sliderValue"></span>        
       </li>
@@ -14,7 +14,7 @@
     <button class="reset-filters" ng-click="resetFilters()">Reset</button>
     <ul class="presets">
       <li class="preset" ng-repeat="preset in presets">
-        <button ng-disabled="mainImageData.length == 0" ng-click="applyPreset(preset.id)">{{preset.name}}</button>
+        <button class='btn btn-info' ng-disabled="mainImageData.length == 0" ng-click="applyPreset(preset.id)">{{preset.name}}</button>
       </li>
     </ul>
     
@@ -25,7 +25,7 @@
     <a download='img.jpeg' ng-click='downloadImageJpeg()'>JPEG Download</a>
   </div>
 
-  <div class="img-holder col-md-9">
+  <div class="img-holder">
     <!-- <img id="img-to-edit" src="http://www.fs.usda.gov/Internet/FSE_MEDIA/stelprdb5199597.jpg" /> -->
     <div img-input-custom img-data='mainImageData' show-video='showVideo' show-canvas='showCanvas'></div>
     <canvas id="mainCanvas" ng-show="mainImageData != '' && !showVideo && showCanvas"></canvas>
