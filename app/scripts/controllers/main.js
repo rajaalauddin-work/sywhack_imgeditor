@@ -32,6 +32,10 @@ function ($scope, filterService, cropService, utilityService) {
 		filterService.applyFilter(filterId, offset);
 		$scope.filters[index].actualValue = $scope.filters[index].sliderValue;
 	};
+	
+	$scope.applyPreset = function(presetId) {
+		filterService.applyPreset(presetId);		
+	};
 
 	$scope.filters = [
 		{
@@ -47,18 +51,35 @@ function ($scope, filterService, cropService, utilityService) {
 			actualValue: 0
 		},
 		{
-			name: 'Sepia',
-			id: 'sepia',
-			sliderValue: 0,
-			actualValue: 0
-		},
-		{
 			name: 'Saturation',
 			id: 'saturation',
 			sliderValue: 0,
 			actualValue: 0
 		}
 	];  
+
+	$scope.presets = [
+		{
+			id: 'sepia',
+			name: 'Sepia'			
+		},
+		{
+			id: 'vintage',
+			name: 'Vintage'			
+		},
+		{
+			id: 'sunrise',
+			name: 'Sunrise'			
+		},
+		{
+			id: 'sinCity',
+			name: 'Sin City'			
+		},
+		{
+			id: 'nostalgia',
+			name: 'Nostalgia'			
+		}
+	];
 
 	$scope.enableCropping = function() {
 		cropService.enableCrop();

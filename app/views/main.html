@@ -14,8 +14,16 @@
         <span ng-bind="filter.value"></span>
       </li>
     </ul>
+
+    <ul class="presets">
+      <li class="preset" ng-repeat="preset in presets">
+        <button ng-click="applyPreset(preset.id)">{{preset.name}}</button>
+      </li>
+    </ul>
+    
     <button class='btn btn-info' ng-click='enableCropping()'>Enable Cropping</button>
     <button class='btn btn-info' ng-click='resetImage()'>Reset Image</button>
+    
     <a download='img.png' ng-click='downloadImagePng()'>PNG Download</a>
     <a download='img.jpeg' ng-click='downloadImageJpeg()'>JPEG Download</a>
   </div>

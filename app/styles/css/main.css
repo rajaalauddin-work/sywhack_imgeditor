@@ -26,6 +26,12 @@ body {
 .syw-hack-image-editor .filters-holder .filters .filter {
   display: inline-block;
 }
+.syw-hack-image-editor .filters-holder .presets {
+  list-style-type: none;
+}
+.syw-hack-image-editor .filters-holder .presets .preset {
+  display: inline-block;
+}
 .syw-hack-image-editor .img-holder {
   text-align: center;
   height: auto;
