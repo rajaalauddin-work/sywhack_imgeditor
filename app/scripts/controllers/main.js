@@ -36,10 +36,12 @@ function ($scope, filterService, cropService, utilityService) {
 	$scope.resetFilters = function(){
 		if($scope.filters){
 			for(var i=0; $scope.filters.length; i++){
-				if($scope.filters[i]) {
-					$scope.filters[i].sliderValue = 0;
-					$scope.filters[i].actualValue = 0;			
-				} 
+				$scope.filters[i].sliderValue = 0;
+				$scope.filters[i].actualValue = 0;			
+				// if($scope.filters[i]) {
+				// 	$scope.filters[i].sliderValue = 0;
+				// 	$scope.filters[i].actualValue = 0;			
+				// } 
 			}
 		}
 	};

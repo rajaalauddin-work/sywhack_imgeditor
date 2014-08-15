@@ -63,6 +63,8 @@ angular.module('sywhackImgeditorApp')
 
       scope.openWebcam = function() {
         scope.showCanvas = false;
+        scope.showVideo = true;
+        
       	navigator.getWebcam = (
 				navigator.getUserMedia || 
 				navigator.webkitGetUserMedia || 

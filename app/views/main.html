@@ -22,7 +22,10 @@
     <button class='btn btn-info' ng-click='resetImage()'>Reset Image</button>
         
   </div>
-
+  <div class="save-image">
+    <a class="btn btn-primary" download='img.png' ng-click='downloadImagePng()'>PNG Download</a>
+    <a class="btn btn-primary" download='img.jpeg' ng-click='downloadImageJpeg()'>JPEG Download</a>
+  </div>
   <div class="img-holder">
     <!-- <img id="img-to-edit" src="http://www.fs.usda.gov/Internet/FSE_MEDIA/stelprdb5199597.jpg" /> -->
     <div img-input-custom img-data='mainImageData' show-video='showVideo' show-canvas='showCanvas'></div>
@@ -34,11 +37,6 @@
     <!-- <canvas id='canvas' width='500' height='500'></canvas> -->
     <!-- <div id='mainCanvas'></div> -->
 
-  </div>
-
-  <div class="save-image">
-    <a class="btn btn-primary" download='img.png' ng-click='downloadImagePng()'>PNG Download</a>
-    <a class="btn btn-primary" download='img.jpeg' ng-click='downloadImageJpeg()'>JPEG Download</a>
   </div>
   
 </div>
