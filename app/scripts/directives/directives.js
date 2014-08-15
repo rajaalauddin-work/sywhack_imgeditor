@@ -13,6 +13,7 @@ angular.module('sywhackImgeditorApp')
 
 			scope.openFileSelect = function() {
         scope.showVideo = false;
+        scope.showCanvas = false;
         //scope.imgData = '';
         element.find('input[type="file"]').trigger('click');
       }
@@ -61,7 +62,7 @@ angular.module('sywhackImgeditorApp')
       }
 
       scope.openWebcam = function() {
-
+        scope.showCanvas = false;
       	navigator.getWebcam = (
 				navigator.getUserMedia || 
 				navigator.webkitGetUserMedia || 
@@ -106,6 +107,7 @@ angular.module('sywhackImgeditorApp')
       scope.showUrlMode = function() {
         scope.showUrlInput = true;
         scope.showVideo = false;
+        scope.showCanvas = false;
         scope.imgData = '';
       }
 

@@ -11,6 +11,7 @@ function ($scope, filterService, cropService, utilityService) {
 
   $scope.mainImageData = '';
   $scope.showVideo = false;
+  $scope.showCanvas = false;
   $scope.origImageData = '';
 
   $scope.$watch('mainImageData', function(newVal, oldVal) {
@@ -74,19 +75,20 @@ function ($scope, filterService, cropService, utilityService) {
 
 	function drawImage(imgData, clearCanvas) {
 
+		var canvas = document.getElementById('mainCanvas');
+		var ctx = canvas.getContext('2d');
+
 		// save original image data
 		$scope.origImageData = imgData;
 
 		if(clearCanvas) {
 			// destroy canvas, recreate a new one
-			$('#mainCanvas').remove();
-			var $cvs = $('<canvas></canvas>');
-			$cvs.attr('id', 'mainCanvas');
-			$('.img-holder').append($cvs);
+			//$('#mainCanvas').remove();
+			//var $cvs = $('<canvas></canvas>');
+			//$cvs.attr('id', 'mainCanvas');
+			//$('.img-holder').append($cvs);
+			canvas.width = canvas.width;
 		}
-
-		var canvas = document.getElementById('mainCanvas');
-		var ctx = canvas.getContext('2d');
 
 		// clear from previous image
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -99,6 +101,7 @@ function ($scope, filterService, cropService, utilityService) {
 	  		$('#mainCanvas').attr('height', this.height);
 	  		
 	      ctx.drawImage(img,0, 0, this.width,this.height);
+	      $scope.showCanvas = true;
 	  };
 
 		img.src = imgData;
