@@ -26,4 +26,12 @@
 		background-color: #ccc;
 	}
 
+	.video-container {
+		display: block;
+
+		.glyphicon-camera {
+			font-size: 3em;
+			cursor: pointer;
+		}
+	}
 }

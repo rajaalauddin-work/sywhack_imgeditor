@@ -15,4 +15,10 @@
 		<div class="image-picker-icon"><span class="glyphicon glyphicon-globe"></span></div>
 		<span class="image-picker-title">Image Url</span>		
 	</div>
+	<div class='video-container'>
+		<video id='localVideo' ng-show='showVideo' style='height: 480px;'></video>
+	  <div ng-show='showVideo' ng-click='takeSnapshot()'>
+	    <span class='glyphicon glyphicon-camera'></span>
+	  </div>
+	</div>
 </div>

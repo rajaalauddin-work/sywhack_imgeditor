@@ -81,6 +81,16 @@ angular.module('sywhackImgeditorApp')
 
       }
 
+      scope.takeSnapshot = function() {
+				var video = document.querySelector('video'); 
+		    var canvas = document.createElement('canvas'); 
+		    var ctx = canvas.getContext('2d'); 
+		    canvas.width = 640;
+		    canvas.height = 480;
+		    ctx.drawImage(video,0,0, 640, 480);
+		    console.log(canvas.toDataURL('image/jpeg')); 
+			}
+
 			function gotWebcam(stream) {
 				localVideo.src = window.URL.createObjectURL(stream);
 				localVideo.play();

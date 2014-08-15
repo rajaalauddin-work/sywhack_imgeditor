@@ -21,3 +21,10 @@
 .img-input-custom .uploader-menu:hover {
   background-color: #ccc;
 }
+.img-input-custom .video-container {
+  display: block;
+}
+.img-input-custom .video-container .glyphicon-camera {
+  font-size: 3em;
+  cursor: pointer;
+}
