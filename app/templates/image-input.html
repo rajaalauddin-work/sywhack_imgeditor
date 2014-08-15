@@ -11,14 +11,18 @@
 		<div class="image-picker-icon"><span class="glyphicon glyphicon-camera"></span></div>
 		<span class="image-picker-title">Webcam Image</span>		
 	</div>
-	<div class='uploader-menu' ng-click="openFileSelect()">
+	<div class='uploader-menu' ng-click="showUrlMode()">
 		<div class="image-picker-icon"><span class="glyphicon glyphicon-globe"></span></div>
 		<span class="image-picker-title">Image Url</span>		
 	</div>
-	<div class='video-container'>
-		<video id='localVideo' ng-show='showVideo' style='height: 480px;'></video>
-	  <div ng-show='showVideo' ng-click='takeSnapshot()'>
+	<div class='video-container' ng-show='showVideo'>
+		<video id='localVideo' style='height: 480px;'></video>
+	  <div  ng-click='takeSnapshot()'>
 	    <span class='glyphicon glyphicon-camera'></span>
 	  </div>
+	</div>
+	<div class='url-container' ng-show='showUrlInput'>
+		<input type='text' ng-model='imageUrl' />
+		<button class='btn btn-primary' ng-click='loadImageFromUrl()'>Get Image</button>
 	</div>
 </div>

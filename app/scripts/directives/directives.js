@@ -1,5 +1,5 @@
 angular.module('sywhackImgeditorApp')
-.directive("imgInputCustom", [ "utilityService", function(utilityService) {
+.directive("imgInputCustom", [ "utilityService", "$http", function(utilityService, $http) {
 
 	return {
 		restrict: 'A',
@@ -100,6 +100,35 @@ angular.module('sywhackImgeditorApp')
 				var video_track = stream.getVideoTracks()[0];
 
 			}
+
+      scope.showUrlMode = function() {
+        scope.showUrlInput = true;
+        scope.showVideo = false;
+      }
+
+      scope.loadImageFromUrl = function() {
+        if(scope.imageUrl == '') return;
+
+        var img = new Image();
+        img.crossOrigin = "anonymous";
+        var cvs = document.createElement('canvas');
+        var ctx = cvs.getContext('2d');
+        img.onload = function() {
+          cvs.width = this.width;
+          cvs.height = this.height;
+          ctx.drawImage(img, 0, 0);
+          scope.imgData = cvs.toDataURL('image/jpeg');
+        }
+        img.src = scope.imageUrl;
+        // $http({method: 'GET', url: scope.imageUrl}).
+        //   success(function(data) {
+        //     console.log(data);
+        //     scope.testImage = data;
+        //   }).
+        //   error(function(data){
+        //     console.log("Some error happened :(");
+        //   });
+      }
 		}
 	}
 }])
