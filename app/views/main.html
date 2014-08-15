@@ -5,13 +5,13 @@
     <button ng-click="applyFilters(-5)">Apply Dec Filters</button> -->
     <ul class="filters">
       <li class="filter" ng-repeat="filter in filters">
-        <button>{{filter.name}}</button>
+        <label class="btn btn-info">{{filter.name}}</label>
         <input class='btn btn-info' type="range" min="-100" max="100" step="10" ng-model="filter.sliderValue" 
           ng-change="applyFilter(filter.id, filter.sliderValue-filter.actualValue, $index)" //>
         <span ng-bind="filter.sliderValue"></span>        
       </li>
     </ul>
-    <button class="reset-filters" ng-click="resetFilters()">Reset</button>
+    <button class="reset-filters btn" ng-click="resetFilters()">Reset</button>
     <ul class="presets">
       <li class="preset" ng-repeat="preset in presets">
         <button class='btn btn-info' ng-disabled="mainImageData.length == 0" ng-click="applyPreset(preset.id)">{{preset.name}}</button>
@@ -20,25 +20,27 @@
     
     <button class='btn btn-info' ng-click='enableCropping()'>Enable Cropping</button>
     <button class='btn btn-info' ng-click='resetImage()'>Reset Image</button>
-    
-    <a download='img.png' ng-click='downloadImagePng()'>PNG Download</a>
-    <a download='img.jpeg' ng-click='downloadImageJpeg()'>JPEG Download</a>
+        
   </div>
 
   <div class="img-holder">
     <!-- <img id="img-to-edit" src="http://www.fs.usda.gov/Internet/FSE_MEDIA/stelprdb5199597.jpg" /> -->
     <div img-input-custom img-data='mainImageData' show-video='showVideo' show-canvas='showCanvas'></div>
+    <div ng-show='showCropPanel' class='crop-control'>
+        <button class='btn btn-info' ng-click='performCrop()' >Perform Crop</button>
+        <button class='btn btn-info' ng-click='resetImage()'>Cancel</button>
+    </div>
     <canvas id="mainCanvas" ng-show="mainImageData != '' && !showVideo && showCanvas"></canvas>
     <!-- <canvas id='canvas' width='500' height='500'></canvas> -->
     <!-- <div id='mainCanvas'></div> -->
+
   </div>
 
-  <div class="footer">
-    <div ng-show='showCropPanel' class='crop-control'>
-      <button class='btn btn-info' ng-click='performCrop()' >Perform Crop</button>
-      <button class='btn btn-info' ng-click='resetImage()'>Cancel</button>
-    </div>
+  <div class="save-image">
+    <a class="btn btn-primary" download='img.png' ng-click='downloadImagePng()'>PNG Download</a>
+    <a class="btn btn-primary" download='img.jpeg' ng-click='downloadImageJpeg()'>JPEG Download</a>
   </div>
+  
 </div>
 
 

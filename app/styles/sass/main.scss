@@ -28,7 +28,8 @@ body {
 			list-style-type: none;
 			
 			.filter {
-				display: block;
+				margin: 10px;
+				display: inline-block;
 			}
 		}
 
@@ -55,7 +56,9 @@ body {
 
 	}
 
-	.footer {
-
+	.crop-control, .save-image {
+		text-align: center;
+		margin: 5px;
 	}
+	
 }

@@ -24,7 +24,8 @@ body {
   list-style-type: none;
 }
 .syw-hack-image-editor .filters-holder .filters .filter {
-  display: block;
+  margin: 10px;
+  display: inline-block;
 }
 .syw-hack-image-editor .filters-holder .reset-filters {
   margin: 5px;
@@ -41,4 +42,8 @@ body {
 }
 .syw-hack-image-editor .img-holder canvas {
   max-width: 80%;
+}
+.syw-hack-image-editor .crop-control, .syw-hack-image-editor .save-image {
+  text-align: center;
+  margin: 5px;
 }
