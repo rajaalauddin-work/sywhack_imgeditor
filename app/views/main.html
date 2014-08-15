@@ -11,7 +11,8 @@
         <span ng-bind="filter.sliderValue"></span>        
       </li>
     </ul>
-    <button class="reset-filters btn" ng-click="resetFilters()">Reset</button>
+    <!-- <button class="reset-filters btn" ng-click="resetFilters()">Reset</button> -->
+    <h4>Presets</h4>
     <ul class="presets">
       <li class="preset" ng-repeat="preset in presets">
         <button class='btn btn-info' ng-disabled="mainImageData.length == 0" ng-click="applyPreset(preset.id)">{{preset.name}}</button>

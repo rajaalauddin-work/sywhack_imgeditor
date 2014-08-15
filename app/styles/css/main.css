@@ -35,6 +35,7 @@ body {
 }
 .syw-hack-image-editor .filters-holder .presets .preset {
   display: inline-block;
+  margin-left: 5px;
 }
 .syw-hack-image-editor .img-holder {
   text-align: center;
