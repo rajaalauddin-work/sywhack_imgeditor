@@ -5,13 +5,14 @@ angular.module('sywhackImgeditorApp')
 		restrict: 'A',
 		replace: true,
 		scope: {
-			imgData: '='
+			imgData: '=',
+			showVideo: '='
 		},
 		templateUrl: '../../templates/image-input.html',
 		link: function(scope, element, attrs) {
 
 			scope.openFileSelect = function() {
-        
+        scope.showVideo = false;
         element.find('input[type="file"]').trigger('click');
       }
 
@@ -83,7 +84,7 @@ angular.module('sywhackImgeditorApp')
 			function gotWebcam(stream) {
 				localVideo.src = window.URL.createObjectURL(stream);
 				localVideo.play();
-
+				scope.showVideo = true;
 				// display some of the attributes of the MediaStream and MediaStreamTrack
 				// first, reach into the mediastream object to access info about the mediaStreamTrack
 				var video_track = stream.getVideoTracks()[0];

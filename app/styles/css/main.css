@@ -33,3 +33,6 @@ body {
 .syw-hack-image-editor .img-holder #mainCanvas {
   max-width: 80%;
 }
+.syw-hack-image-editor .img-holder .glyphicon-camera {
+  font-size: 3em;
+}

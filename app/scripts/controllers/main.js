@@ -10,6 +10,7 @@ function ($scope, filterService, cropService, utilityService) {
   ];
 
   $scope.mainImageData = '';
+  $scope.showVideo = false;
 
   $scope.$watch('mainImageData', function(newVal, oldVal) {
   	if(newVal != '' && oldVal != '') {
