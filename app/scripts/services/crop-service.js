@@ -22,7 +22,6 @@ angular.module('sywhackImgeditorApp')
 		ctx = canvas.getContext('2d');
 		init(canvas);
 
-		debugger;
 		// create another canvas
 		createBgCanvas();
 		//drawImage(500, 500);

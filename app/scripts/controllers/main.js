@@ -100,6 +100,10 @@ function ($scope, filterService, cropService, utilityService) {
 		$scope.showCropPanel = false;
 	}
 
+	$scope.cancelCrop = function() {
+		
+	}
+
 	$scope.downloadImagePng = function() {
 		var canvas = document.getElementById('mainCanvas');
 		event.target.href = canvas.toDataURL("image/png")
