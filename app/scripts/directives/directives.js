@@ -13,6 +13,7 @@ angular.module('sywhackImgeditorApp')
 
 			scope.openFileSelect = function() {
         scope.showVideo = false;
+        scope.imgData = '';
         element.find('input[type="file"]').trigger('click');
       }
 

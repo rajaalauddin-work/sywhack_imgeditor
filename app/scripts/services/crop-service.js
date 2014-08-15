@@ -3,9 +3,23 @@
 angular.module('sywhackImgeditorApp')
 .service("cropService", [ "utilityService", function(utilityService) {
 	
+	var rect = {};
+	var drag = false;
+	var canvas;
+	var ctx;
+	var canvasWidth, canvasHeight;
+	var canvasOrig;
+
 	this.enableCrop = function() {
 		//initDraw(document.getElementById('canvas'));	
 		//init();
+		//debugger;
+		canvas = document.getElementById('mainCanvas');
+		canvasWidth = canvas.width;
+		canvasHeight = canvas.height;
+		canvasOrig = canvas.toDataURL('image/jpeg');
+		ctx = canvas.getContext('2d');
+		init(canvas);
 
 		//drawImage(500, 500);
 		//utilityService.loadCanvasWithUrlImage("canvas", "http://i.imgur.com/8gRd6o3.jpg");
@@ -17,15 +31,16 @@ angular.module('sywhackImgeditorApp')
  //    rect = {},
  //    drag = false;
 
-  function drawImage(width, height) {
 
-  	var imagePaper = new Image();
-	  imagePaper.onload = function(){
+  function drawImage() {
 
-	      ctx.drawImage(imagePaper,0, 0, width,height);
+  	var img = new Image();
+	  img.onload = function(){
+
+	      ctx.drawImage(img,0, 0, canvasWidth,canvasHeight);
 	  };
 
-		imagePaper.src = "images/Penguins.jpg";
+		img.src = canvasOrig;
 		//imagePaper.src = "http://i.imgur.com/8gRd6o3.jpg";
 
   }
@@ -35,7 +50,8 @@ angular.module('sywhackImgeditorApp')
 		ctx.fillStyle = "#000";
 	  ctx.fillRect(rect.startX, rect.startY, rect.w, rect.h);
 
-	  drawImage(500, 500);
+	  drawImage();
+	  //drawImage(500, 500);
 	  //utilityService.loadCanvasWithUrlImage("canvas", "http://i.imgur.com/8gRd6o3.jpg");
 
 	}
@@ -50,7 +66,7 @@ angular.module('sywhackImgeditorApp')
 	  drag = false;
 
 
-	  Caman("#canvas", function () {
+	  Caman("#mainCanvas", function () {
 		  // width, height, x, y
 		  this.crop(rect.w, rect.h, rect.startX, rect.startY);
 
@@ -70,7 +86,7 @@ angular.module('sywhackImgeditorApp')
 	  }
 	}
 
-	function init() {
+	function init(canvas) {
 	  canvas.addEventListener('mousedown', mouseDown, false);
 	  canvas.addEventListener('mouseup', mouseUp, false);
 	  canvas.addEventListener('mousemove', mouseMove, false);

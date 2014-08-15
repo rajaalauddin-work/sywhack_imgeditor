@@ -7,9 +7,10 @@
     <!-- <button ng-click="applyFilters()">Apply Filters</button> -->
     <ul class="filters">
       <li class="filter" ng-repeat="filter in filters">
-        <button ng-click="applyFilter(filter.id, 10)">{{filter.name}}</button>
+        <button class='btn btn-secondary' ng-click="applyFilter(filter.id, 10)">{{filter.name}}</button>
       </li>
     </ul>
+    <button class='btn btn-info' ng-click='enableCropping()'>Enable Cropping</button>
   </div>
 
   <div class="img-holder">

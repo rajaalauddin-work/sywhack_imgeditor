@@ -13,6 +13,7 @@ function ($scope, filterService, cropService, utilityService) {
   $scope.showVideo = false;
 
   $scope.$watch('mainImageData', function(newVal, oldVal) {
+  	
   	if(newVal != '' && oldVal != '') {
   		drawImage(newVal, true); 
   	} else if(newVal != '') {
@@ -46,7 +47,10 @@ function ($scope, filterService, cropService, utilityService) {
 			id: 'saturation'
 		}
 	];  
-	cropService.enableCrop();
+
+	$scope.enableCropping = function() {
+		cropService.enableCrop();
+	}
 
 	function drawImage(imgData, clearCanvas) {
 
