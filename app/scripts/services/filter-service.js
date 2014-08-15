@@ -2,18 +2,20 @@
 
 angular.module('sywhackImgeditorApp')
   .service("filterService", function() {
-  	this.applyFilters = function()	{
+  	this.applyFilters = function(value)	{
   		Caman('#mainCanvas', function () {
-  			this.brightness(10);
-		    this.contrast(50);
-		    this.sepia(50);
-		    this.saturation(50);
+  			this.brightness(value);
+		    //this.contrast(50);
+		    //this.sepia(50);
+		    //this.saturation(50);
 		    this.render();
 	  	});
   	};
 
-  	this.applyFilter = function(filterId, value) {
-  		//alert('Apply '+filterId+" "+value);
+  	this.applyFilter = function(filterId, sliderValue, actualValue) {
+  		
+  		var value = sliderValue - actualValue;
+  		console.log(value);
   		switch(filterId){
   			case "brightness": 
 				Caman('#mainCanvas', function () {
@@ -45,5 +47,7 @@ angular.module('sywhackImgeditorApp')
 			  	});	
   			break;
   		}
+
+  		return value;
   	};
   });

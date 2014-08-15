@@ -23,34 +23,38 @@ function ($scope, filterService, cropService, utilityService) {
   	}
   });
 
-  $scope.applyFilters = function(){
-    	filterService.applyFilters();	    	
+  $scope.applyFilters = function(value){
+    	filterService.applyFilters(value);	    	
 	};
 
-	$scope.applyFilter = function(filterId, value) {
-		filterService.applyFilter(filterId, value);
+	$scope.applyFilter = function(filterId, sliderValue, actualValue, index) {
+		$scope.filters[index].actualValue = filterService.applyFilter(filterId, sliderValue, actualValue);
 	};
 
 	$scope.filters = [
 		{
 			name: 'Brightness',
 			id: 'brightness',
-			value: 0
+			sliderValue: 0,
+			actualValue: 0
 		},
 		{
 			name: 'Contrast',
 			id: 'contrast',
-			value: 0
+			sliderValue: 0,
+			actualValue: 0
 		},
 		{
 			name: 'Sepia',
 			id: 'sepia',
-			value: 0
+			sliderValue: 0,
+			actualValue: 0
 		},
 		{
 			name: 'Saturation',
 			id: 'saturation',
-			value: 0
+			sliderValue: 0,
+			actualValue: 0
 		}
 	];  
 

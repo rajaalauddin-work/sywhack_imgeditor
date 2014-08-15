@@ -4,11 +4,13 @@
   </div>
   
   <div class="filters-holder">
-    <!-- <button ng-click="applyFilters()">Apply Filters</button> -->
+    <button ng-click="applyFilters(5)">Apply Inc Filters</button>
+    <button ng-click="applyFilters(-5)">Apply Dec Filters</button>
     <ul class="filters">
       <li class="filter" ng-repeat="filter in filters">
-        <button ng-click="applyFilter(filter.id, filter.value)">{{filter.name}}</button>
-        <input type="range" min="-100" max="100" step="1" ng-model="filter.value" ng-change="applyFilter(filter.id, filter.value)" //>
+        <button ng-click="applyFilter(filter.id, filter.sliderValue, filter.actualValue, $index)">{{filter.name}}</button>
+        <input type="range" min="-100" max="100" step="1" ng-model="filter.sliderValue" 
+          ng-change="applyFilter(filter.id, filter.sliderValue, filter.actualValue, $index)" //>
         <span ng-bind="filter.value"></span>
       </li>
     </ul>
