@@ -17,13 +17,6 @@ body {
   margin: 0;
   padding: 0;
 }
-.syw-hack-image-editor .img-holder {
-  text-align: center;
-  height: auto;
-}
-.syw-hack-image-editor .img-holder #img-to-edit {
-  max-width: 80%;
-}
 .syw-hack-image-editor .filters-holder {
   width: 400px;
 }
@@ -32,4 +25,11 @@ body {
 }
 .syw-hack-image-editor .filters-holder .filters .filter {
   display: inline-block;
+}
+.syw-hack-image-editor .img-holder {
+  text-align: center;
+  height: auto;
+}
+.syw-hack-image-editor .img-holder #mainCanvas {
+  max-width: 80%;
 }

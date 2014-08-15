@@ -5,17 +5,17 @@ angular.module('sywhackImgeditorApp')
 	
 	this.enableCrop = function() {
 		//initDraw(document.getElementById('canvas'));	
-		init();
+		//init();
 
-		drawImage(500, 500);
+		//drawImage(500, 500);
 		//utilityService.loadCanvasWithUrlImage("canvas", "http://i.imgur.com/8gRd6o3.jpg");
 
 	}
 	
-	var canvas = document.getElementById('canvas'),
-    ctx = canvas.getContext('2d'),
-    rect = {},
-    drag = false;
+	// var canvas = document.getElementById('canvas'),
+ //    ctx = canvas.getContext('2d'),
+ //    rect = {},
+ //    drag = false;
 
   function drawImage(width, height) {
 

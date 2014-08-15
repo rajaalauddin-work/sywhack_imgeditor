@@ -2,7 +2,12 @@
   width: 400px;
   height: 100px;
   border: solid 2px #ccc;
+  margin: 0px auto;
 }
 .img-input-custom input[type='file'] {
   display: none;
+}
+.img-input-custom .glyphicon-upload {
+  font-size: 3em;
+  cursor: pointer;
 }

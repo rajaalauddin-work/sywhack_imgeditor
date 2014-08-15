@@ -3,7 +3,7 @@
 angular.module('sywhackImgeditorApp')
   .service("filterService", function() {
   	this.applyFilters = function()	{
-  		Caman('#img-to-edit', function () {
+  		Caman('#mainCanvas', function () {
   			this.brightness(10);
 		    this.contrast(50);
 		    this.sepia(50);
@@ -16,31 +16,31 @@ angular.module('sywhackImgeditorApp')
   		//alert('Apply '+filterId+" "+value);
   		switch(filterId){
   			case "brightness": 
-				Caman('#img-to-edit', function () {
+				Caman('#mainCanvas', function () {
 		  			this.brightness(value);
 				    this.render();
 			  	});
   			break;
   			case "contrast": 
-  				Caman('#img-to-edit', function () {
+  				Caman('#mainCanvas', function () {
 		  			this.contrast(value);
 				    this.render();
 			  	});
   			break;
   			case "sepia": 
-  				Caman('#img-to-edit', function () {
+  				Caman('#mainCanvas', function () {
 		  			this.sepia(value);
 				    this.render();
 			  	});
   			break;
   			case "saturation": 
-  				Caman('#img-to-edit', function () {
+  				Caman('#mainCanvas', function () {
 		  			this.saturation(value);
 				    this.render();
 			  	});
   			break;
   			default: 
-  				Caman('#img-to-edit', function () {
+  				Caman('#mainCanvas', function () {
 	  			 	this.render();
 			  	});	
   			break;

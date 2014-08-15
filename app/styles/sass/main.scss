@@ -20,14 +20,7 @@ body {
 	.header {
 
 	}
-	.img-holder {
-		text-align: center;
-		height: auto;
 
-		#img-to-edit {
-			max-width: 80%;
-		}
-	}			
 	.filters-holder {
 		width: 400px;
 
@@ -39,6 +32,16 @@ body {
 			}
 		}
 	}
+
+	.img-holder {
+		text-align: center;
+		height: auto;
+
+		#mainCanvas {
+			max-width: 80%;
+		}
+	}
+	
 	.footer {
 
 	}

@@ -38,6 +38,8 @@ angular.module('sywhackImgeditorApp')
               scope.imgData = canvas.toDataURL('image/jpeg');
             }
 
+            console.log(image.width);
+            console.log(image.height);
 
             // get the resized version
             //$scope.step.previewImage = imgUtility.getResizedImage($scope.step.image, 138, 86);

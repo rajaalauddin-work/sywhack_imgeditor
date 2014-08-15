@@ -3,8 +3,14 @@
 	width: 400px;
 	height: 100px;
 	border: solid 2px #ccc;
+	margin: 0px auto;
 
 	input[type='file'] {
 		display: none;
+	}
+
+	.glyphicon-upload {
+		font-size: 3em;
+		cursor: pointer;
 	}
 }
